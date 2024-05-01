@@ -130,9 +130,12 @@ class SamplesheetParser {
     private def resolvePath(path) {
         // paths in a CSV samplesheet might be relative, and should be resolved from the samplesheet path
         def is_absolute = path.startsWith('/') // isAbsolute() was causing weird issues
+        def is_gs = path.startsWith('gs://')
 
         def resolved_path
-        if (is_absolute) {
+        if (is_gs) {
+            resolved_path = Nextflow.file(path).resolve()
+        } else if (is_absolute) {
             resolved_path = Nextflow.file(path).resolve()
         } else {
             resolved_path = Nextflow.file(this.path).getParent().resolve(path)
