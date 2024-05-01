@@ -134,7 +134,7 @@ class SamplesheetParser {
 
         def resolved_path
         if (is_gs) {
-            resolved_path = Nextflow.file(path).resolve()
+            resolved_path = Nextflow.file(path)
         } else if (is_absolute) {
             resolved_path = Nextflow.file(path).resolve()
         } else {
