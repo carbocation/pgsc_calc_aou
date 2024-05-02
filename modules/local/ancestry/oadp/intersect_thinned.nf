@@ -8,6 +8,7 @@ process INTERSECT_THINNED {
     // labels are defined in conf/modules.config
     label 'process_high_memory'
     label 'process_long'
+    label 'large_disk'
     label 'plink2' // controls conda, docker, + singularity options
 
     tag "$meta.id"
