@@ -110,6 +110,6 @@ process INTERSECT_THINNED {
     cat <<-END_VERSIONS > versions.yml
     ${task.process.tokenize(':').last()}:
         plink2: \$(plink2 --version 2>&1 | sed 's/^PLINK v//; s/ 64.*\$//' )
-    END_VERSIONS
+END_VERSIONS
     """
 }
